@@ -1,0 +1,11 @@
+{
+    "moduleFileExtensions": [
+        "js",
+        "jsx"
+    ],
+    "moduleNameMapper": {
+        "Clock": "app/components/Clock.jsx",
+        "CountdownForm": "app/components/CountdownForm.jsx",
+        "Countdown": "app/components/Countdown.jsx"
+    }
+}
