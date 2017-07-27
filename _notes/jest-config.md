@@ -1,3 +1,6 @@
+## Default config
+    Place tests in a __tests__ folder, or name your test files with a .spec.js or .test.js extension. 
+
 ## Config Jest in package.json
   "jest": {
     "moduleFileExtensions": [
