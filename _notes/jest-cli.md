@@ -1,7 +1,7 @@
 # Jest Command Line
 
 $ jest --watch
-
+$ jest --coverage
 $ jest --config jest.config.js
 
 ## Run jest by using npm script
