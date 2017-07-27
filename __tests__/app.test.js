@@ -27,6 +27,7 @@ describe('App', () => {
         const button = component.find('button');
         button.simulate('click');
         button.simulate('click');
-        expect(component.state().counter).toEqual(2);
+        button.props().onClick();
+        expect(component.state().counter).toEqual(3);
     });
 });

@@ -16,7 +16,7 @@ export default class App extends React.Component {
     });
   }
   render() {
-    let {counter} = this.state;
+    let counter = this.state.couter;
     return (
       <div>
         <h1>Apps</h1>
