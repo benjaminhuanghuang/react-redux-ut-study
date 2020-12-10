@@ -3,8 +3,8 @@ import "@testing-library/jest-dom/extend-expect";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import { render, cleanup, fireEvent } from "@testing-library/react";
-import { initialState, reducer } from "../store/reducer";
-import TestRedux from "../components/TestRedux";
+import { initialState, reducer } from "./reducer";
+import TestRedux from "./TestRedux";
 
 const renderWithRedux = (component, { initialState, store = createStore(reducer, initialState) } = {}) => {
   return {

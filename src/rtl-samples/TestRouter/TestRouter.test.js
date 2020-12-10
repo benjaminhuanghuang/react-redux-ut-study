@@ -3,7 +3,7 @@ import "@testing-library/jest-dom/extend-expect";
 import { Router } from "react-router-dom";
 import { render, fireEvent } from "@testing-library/react";
 import { createMemoryHistory } from "history";
-import TestRouter from "./components/TestRouter";
+import TestRouter from "./TestRouter";
 
 const renderWithRouter = (component) => {
   const history = createMemoryHistory();
