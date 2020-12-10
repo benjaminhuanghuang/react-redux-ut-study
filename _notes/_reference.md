@@ -16,3 +16,4 @@ Unit Testing React Components | Redux-Thunk | Redux-Saga (Full Guide, September 
 
 使用 React Testing Library 和 Jest 完成单元测试 [2020]
 - https://segmentfault.com/a/1190000022054307
+- https://github.com/jokingzhang/rts-guide-demo

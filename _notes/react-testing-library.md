@@ -54,8 +54,10 @@ npm i -D @testing-library/dom
 5. Test Redux
 
 
+6. Test React Context
 
-## Test Router
+
+7. Test Router
 要测试React Router，我们首先必须有一个导航历史记录。因此，我们使用 createMemoryHistory() 来创建导航历史。
 
 接下来，使用助手函数 renderWithRouter() 来呈现组件，并将历史记录传递给路由器组件。这样，我们现在就可以测试在开始时加载的页面是否是主页。以及导航栏是否加载了预期的链接。
@@ -65,3 +67,6 @@ npm i -D @testing-library/dom
 现在，要检查导航是否工作，我们必须触发导航链接上的单击事件。
 
 对于第一个测试，我们检查内容是否等于About页面中的文本，对于第二个测试，我们测试路由参数并检查它是否正确通过。
+
+8. Test Http request
+
