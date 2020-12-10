@@ -1,24 +1,37 @@
-const path = require('path');
+const path = require("path");
+const config = {
+  entry: "./src/index",
+  //   entry: "./src/index.jsx",
+  output: {
+    path: path.resolve(__dirname, "public/dist"),
+    filename: "bundle.js",
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: "babel-loader",
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.scss$/,
+        use: ["style-loader", "css-loader", "sass-loader"],
+      },
+    ],
+  },
+  resolve: {
+    extensions: [".js", ".jsx"],
+  },
+  mode: "development",
+  devServer: {
+    contentBase: path.join(__dirname, "public"),
+    compress: true,
+    port: 3721,
+  }
+};
 
-var config = {
-    entry: './main.js', // entry point
-    output: {
-        path: path.resolve(__dirname, './dist'),
-        filename: 'index.js', // place where bundled app will be served
-    },
-    devServer: {
-        inline: true, // autorefresh
-        port: 8080 // development port server
-    },
-    module: {
-        loaders: [{
-            test: /\.jsx?$/, // search for js files 
-            exclude: /node_modules/,
-            loader: 'babel-loader',
-            query: {
-                presets: ['es2015', 'react'] // use es2015 and react
-            }
-        }]
-    }
-}
 module.exports = config;
