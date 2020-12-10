@@ -12,27 +12,29 @@ const renderWithRouter = (component) => {
   };
 };
 
-it("should render the home page", () => {
-  const { container, getByTestId } = renderWithRouter(<App />);
-  const navbar = getByTestId("navbar");
-  const link = getByTestId("home-link");
+describe("Navigation in App", () => {
+  it("should render the home page", () => {
+    const { container, getByTestId } = renderWithRouter(<App />);
+    const navbar = getByTestId("navbar");
+    const link = getByTestId("home-link");
 
-  expect(container.innerHTML).toMatch("Home");
-  expect(navbar).toContainElement(link);
-});
+    expect(container.innerHTML).toMatch("Home");
+    expect(navbar).toContainElement(link);
+  });
 
-it("should navigate to the reports page", () => {
-  const { container, getByTestId } = renderWithRouter(<App />);
+  it("should navigate to the reports page", () => {
+    const { container, getByTestId } = renderWithRouter(<App />);
 
-  fireEvent.click(getByTestId("reports-link"));
+    fireEvent.click(getByTestId("reports-link"));
 
-  expect(container.innerHTML).toMatch("Reports");
-});
+    expect(container.innerHTML).toMatch("Reports");
+  });
 
-it("should navigate to the products the params", () => {
-  const { container, getByTestId } = renderWithRouter(<App />);
+  it("should navigate to the products the params", () => {
+    const { container, getByTestId } = renderWithRouter(<App />);
 
-  fireEvent.click(getByTestId("products-link"));
+    fireEvent.click(getByTestId("products-link"));
 
-  expect(container.innerHTML).toMatch("Products");
+    expect(container.innerHTML).toMatch("Products");
+  });
 });

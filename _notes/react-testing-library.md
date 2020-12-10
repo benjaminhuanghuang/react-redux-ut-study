@@ -73,4 +73,4 @@ npm i -D @testing-library/dom
 对于第一个测试，我们检查内容是否等于About页面中的文本，对于第二个测试，我们测试路由参数并检查它是否正确通过。
 
 8. Test Http request
-
+Mock 
