@@ -4,6 +4,10 @@ https://testing-library.com/docs/dom-testing-library/intro/
 ```
 npm i -D @testing-library/dom
 ```
+## Add data-testid to the component
+```
+<Navbar bg="dark" variant="dark" data-testid="navbar">
+```
 
 ## 以下是一些来自文档的查询示例:
 - getByLabelText:搜索与作为参数传递的给定文本匹配的标签，然后查找与该标签关联的元素。

@@ -1,7 +1,8 @@
 import React from "react";
 
 class Counter extends React.Component {
-  constructor() {
+  constructor(props) {
+    super(props);
     this.state = { count: 0 };
   }
   increment = () => this.setState(({ count }) => ({ count: count + 1 }));

@@ -1,28 +1,38 @@
-import React from 'react';
+import React from "react";
+import "@testing-library/jest-dom/extend-expect";
+import { Router } from "react-router-dom";
+import { render, fireEvent } from "@testing-library/react";
+import { createMemoryHistory } from "history";
+import App from "./App";
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      counter: 0
-    }
-  }
+const renderWithRouter = (component) => {
+  const history = createMemoryHistory();
+  return {
+    ...render(<Router history={history}>{component}</Router>),
+  };
+};
 
-  increment(event) {
-    let { counter } = this.state;
-    counter += 1;
-    this.setState({
-      counter
-    });
-  }
-  render() {
-    let counter = this.state.couter;
-    return (
-      <div>
-        <h1>Apps</h1>
-        <h2>Counter: {counter}</h2>
-        <button onClick={ this.increment.bind(this) }>Increment</button> 
-      </div>
-    )
-  }
-}
+it("should render the home page", () => {
+  const { container, getByTestId } = renderWithRouter(<App />);
+  const navbar = getByTestId("navbar");
+  const link = getByTestId("home-link");
+
+  expect(container.innerHTML).toMatch("Home");
+  expect(navbar).toContainElement(link);
+});
+
+it("should navigate to the reports page", () => {
+  const { container, getByTestId } = renderWithRouter(<App />);
+
+  fireEvent.click(getByTestId("reports-link"));
+
+  expect(container.innerHTML).toMatch("Reports");
+});
+
+it("should navigate to the products the params", () => {
+  const { container, getByTestId } = renderWithRouter(<App />);
+
+  fireEvent.click(getByTestId("products-link"));
+
+  expect(container.innerHTML).toMatch("Products");
+});

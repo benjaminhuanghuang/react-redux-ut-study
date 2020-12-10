@@ -1,7 +1,7 @@
 
 import React from 'react'
 import "@testing-library/jest-dom/extend-expect";
-import { render, waitForElement, fireEvent } from '@testing-library/react'
+import { render, fireEvent, screen } from '@testing-library/react'
 import axiosMock from 'axios'
 import TestAxios from './TestAxios'
 
@@ -24,7 +24,7 @@ it('should load and display the data', async () => {
 
   fireEvent.click(getByTestId('fetch-data'))
 
-  const greetingData = await waitForElement(() => getByTestId('show-data'))
+  const greetingData = await screen.findByTestId('show-data')
 
   expect(axiosMock.get).toHaveBeenCalledTimes(1)
   expect(axiosMock.get).toHaveBeenCalledWith(url)
