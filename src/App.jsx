@@ -1,28 +1,23 @@
-import React from 'react';
+import React from "react";
+import {BrowserRouter as Router, Switch, Route}  from 'react-router-dom'
+//
+import Header from "./components/Header/Header";
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      counter: 0
-    }
-  }
+import Home from "./pages/Home";
+import Products from "./pages/Products";
+import Reports from "./pages/Reports";
 
-  increment(event) {
-    let { counter } = this.state;
-    counter += 1;
-    this.setState({
-      counter
-    });
-  }
-  render() {
-    let counter = this.state.couter;
-    return (
-      <div>
-        <h1>Apps</h1>
-        <h2>Counter: {counter}</h2>
-        <button onClick={ this.increment.bind(this) }>Increment</button> 
-      </div>
-    )
-  }
+function App() {
+  return (
+    <Router>
+      <Header />
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/reports" component={Reports} />
+        <Route path="/products" component={Products} />
+      </Switch>
+    </Router>
+  );
 }
+
+export default App;

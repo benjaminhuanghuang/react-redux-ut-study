@@ -27,7 +27,6 @@ const config = {
   mode: "development",
   devServer: {
     contentBase: path.join(__dirname, "dist"),
-    publicPath: '/',
     compress: true,
     port: 3721,
   },

@@ -13,3 +13,6 @@ npm i jest -D
 npm i -D @testing-library/dom
 
 npm i -D redux-mock-store axios-mock-adapter
+
+
+npm i bootstrap react-bootstrap
