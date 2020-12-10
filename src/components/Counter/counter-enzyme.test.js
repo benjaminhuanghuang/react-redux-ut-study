@@ -1,9 +1,12 @@
 import React from "react";
-import { shallow } from "enzyme";
+import Adapter from 'enzyme-adapter-react-16';
+import { shallow, configure } from "enzyme";
 
-import Counter from "./counter";
+import Counter from "./Counter";
 
 describe("<Counter />", () => {
+  configure({adapter: new Adapter()});
+
   it("properly increments and decrements the counter", () => {
     const wrapper = shallow(<Counter />);
     expect(wrapper.state("count")).toBe(0);

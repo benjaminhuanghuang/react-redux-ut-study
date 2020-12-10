@@ -1,9 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from '../app/app';
+import App from './App';
+import Adapter from 'enzyme-adapter-react-16';
 
 // Shallow renders the current node and returns a shallow wrapper around it
-import { shallow, mount } from 'enzyme';
+import { shallow, mount, configure } from 'enzyme';
+configure({adapter: new Adapter()});
+
 
 describe('App', () => {
     it('renders without crashing', () => {

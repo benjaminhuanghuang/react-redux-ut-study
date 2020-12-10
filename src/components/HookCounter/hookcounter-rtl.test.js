@@ -1,7 +1,7 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 
-import Counter from "./counter";
+import Counter from "./Counter";
 
 describe("<Counter />", () => {
   it("properly increments and decrements the counter", () => {

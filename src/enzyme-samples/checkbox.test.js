@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDom from  'react-dom';
 import ReactTestUtils from 'react-dom/test-utils';
 
-jest.dontMock('../../app/components/checkbox');
+jest.dontMock('./Checkbox');
 
 //const Checkbox = require('../src/checkbox');
-import Checkbox from '../../app/components/checkbox';
+import Checkbox from './Checkbox';
 
 describe('test react checkbox component', () => {
     it('change the label after click', () => {

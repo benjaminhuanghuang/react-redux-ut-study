@@ -1,9 +1,11 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { shallow, configure } from "enzyme";
+import Adapter from 'enzyme-adapter-react-16';
 
-import Counter from "./hookcounter";
+import Counter from "./Counter";
 
 describe("<Counter />", () => {
+  configure({adapter: new Adapter()});
   it("properly increments and decrements the counter", () => {
     const setValue = jest.fn();
     const useStateSpy = jest.spyOn(React, "useState");
