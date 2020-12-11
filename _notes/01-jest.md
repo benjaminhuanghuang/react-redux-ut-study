@@ -128,40 +128,13 @@ toBeFalsy 匹配任何 if 语句为假
 ```
 
 - Async
+Samples: 
 ```
-  Test the fetchData(callback) 函数，获取一些数据并在完成时调用 callback(data)。 
-  你期望返回的数据是一个字符串 good
-
-  使用单个参数调用 done，而不是将测试放在一个空参数的函数。 Jest会等done回调函数执行结束后，结束测试。
-  test('the data is good', done => {
-    function callback(data) {
-      try {
-        expect(data).toBe('good');
-        done();
-      } catch (error) {
-        done(error);
-      }
-    }
-
-    fetchData(callback);
-  });
+  /playground/async
 ```
 
-- Promise
-```
-  test('the data is good', () => {
-  return fetchData().then(data => {
-    expect(data).toBe('good');
-  });
-});
-
-test('the fetch fails with an error', () => {
-  expect.assertions(1);
-  return fetchData().catch(e => expect(e).toMatch('error'));
-});
-```
 - Setup and Teardown
-Sample: 
+Samples: 
 ```
   /playground/setup-teardown.test.js
 ```
@@ -169,4 +142,13 @@ Sample:
 - Mock
  Mock 函数允许你测试代码之间的连接——实现方式包括：擦除函数的实际实现、捕获对函数的调用 ( 以及在这些调用中传递的参数) 、在使用 `new` 实例化时捕获构造函数的实例、允许测试时配置返回值。
 
-jest.spyOn()方法同样创建一个mock函数，但是该mock函数不仅能够捕获函数的调用情况，还可以正常的执行被spy的函数。实际上，jest.spyOn()是jest.fn()的语法糖，它创建了一个和被spy的函数具有相同内部代码的mock函数。
+jest.fn() 创建一个mock函数  
+jest.mock() mock整个module, 擦除函数的实际实现
+jest.spyOn()方法同样创建一个mock函数，但是该mock函数不仅能够捕获函数的调用情况，还可以正常的执行被spy的函数。jest.spyOn()是jest.fn()的语法糖，它创建了一个和被spy的函数具有相同内部代码的mock函数。
+jest.useFakeTimers();   来模拟定时器函数
+jest.runAllTimers()，    在测试中将时间“快进”到正确的时间点
+
+Samples: 
+```
+  /playground/mock
+```
