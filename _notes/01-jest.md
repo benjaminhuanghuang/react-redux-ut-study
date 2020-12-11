@@ -76,6 +76,12 @@ The test case will use the aliases to find the module to be test.
 
 
 ## Jest API
+- 选择运行某个Test case
+```
+   test.only('my only true test', () => {
+    expect(1 + 1).toEqual(2);
+  });
+```
 - Matchers
 
 
@@ -154,28 +160,13 @@ test('the fetch fails with an error', () => {
   return fetchData().catch(e => expect(e).toMatch('error'));
 });
 ```
-- Hooks
-Jest提供了`beforeEach`、`afterEach`、`beforeAll`、`afterAll`等钩子，用于一些测试之前等状态预设和测试完成后等重置、清理工作. 
-其中`beforeEach`和`afterEach`会分别在每个单元测试的运行前和运行结束后执行，`beforeAll`和`afterAll`则是在所有单元测试的执行前和执行完成后运行。
-
-此外可以通过 `describe` 块来将测试分组。 当 `before` 和 `after` 的块在 `describe` 块内部时，则其只适用于该 `describe` 块内的测试。
-
-顶级的 `beforeEach` 在 `describe` 块级的 `beforeEach` 之前被执行
-
+- Setup and Teardown
+Sample: 
 ```
-beforeAll(() => console.log('1 - beforeAll'));
-afterAll(() => console.log('1 - afterAll'));
-beforeEach(() => console.log('1 - beforeEach'));
-afterEach(() => console.log('1 - afterEach'));
-
-test('', () => console.log('1 - test'));
-
-describe('Scoped / Nested block', () => {
-  beforeAll(() => console.log('2 - beforeAll'));
-  afterAll(() => console.log('2 - afterAll'));
-  beforeEach(() => console.log('2 - beforeEach'));
-  afterEach(() => console.log('2 - afterEach'));
-  test('', () => console.log('2 - test'));
-});
+  /playground/setup-teardown.test.js
 ```
+
 - Mock
+ Mock 函数允许你测试代码之间的连接——实现方式包括：擦除函数的实际实现、捕获对函数的调用 ( 以及在这些调用中传递的参数) 、在使用 `new` 实例化时捕获构造函数的实例、允许测试时配置返回值。
+
+jest.spyOn()方法同样创建一个mock函数，但是该mock函数不仅能够捕获函数的调用情况，还可以正常的执行被spy的函数。实际上，jest.spyOn()是jest.fn()的语法糖，它创建了一个和被spy的函数具有相同内部代码的mock函数。
