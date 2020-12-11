@@ -10,7 +10,10 @@ From Facebook, integrated with create-react-app and @vue/cli
 
 ##
 - react-test-library
+created by Facebook
+
 - enzyme
+created by Airbnb
 
 
 ## Mock

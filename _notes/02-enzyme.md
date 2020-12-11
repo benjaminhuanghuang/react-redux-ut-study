@@ -6,11 +6,13 @@
 
 ## Enzyme Render
 Enzyme提供来三种渲染组件的方法
-- shallow 方法就是官方的shallow rendering的封装。用于分析HTML结构，所以无法用于交互测试。
+- shallow 方法就是官方的shallow rendering的封装。用于分析HTML结构，所以无法用于交互测试。真正的单元测试 (隔离，子组件不会渲染)
 
-- render 返回的为对象，用于分析HTML结构，所以无法用于交互测试。
+- render 返回的为对象，用于分析HTML结构，所以无法用于交互测试。仅调用render，但渲染所有子组件。
 
-- mount方法用于将React组件加载为真实DOM节点。可用于交互测试
+- mount方法用于将React组件加载为真实DOM节点。可用于交互测试。测试 componentDidMount 和 componentDidUpdate 的唯一方式。会渲染包括子组件在内的所有组
+
+render doesn't have simulate - only shallow and mount do.
 
 ## enzyme API
  - get(index)：返回指定位置的子组件的DOM节点
