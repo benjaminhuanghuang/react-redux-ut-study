@@ -1,5 +1,9 @@
+## Reference
 - My experience moving from Enzyme to react-testing-library [2019]
   - https://medium.com/@boyney123/my-experience-moving-from-enzyme-to-react-testing-library-5ac65d992ce#:~:text=Both%20Enzyme%20and%20react%2Dtesting,mindset%20when%20writing%20your%20tests
+
+- [React Testing Library vs Enzyme](https://www.youtube.com/watch?v=SyAYO5w-nUI&ab_channel=LogRocket)
+
 
 react-testing-library tends to support new features of React out the box which for me was a huge benefit when testing Hooks.
 
