@@ -1,4 +1,22 @@
 
+function fetchData()
+{
+  return new Promise((resolve, reject)=>
+  {
+    setTimeout(() => {
+      // do something...
+      const err = false
+
+      if(err){
+        resolve('good');
+      }
+      else{
+        reject('error')
+      }
+    }, 1000);
+
+  }) 
+}
 
 
 test('the data is good', () => {

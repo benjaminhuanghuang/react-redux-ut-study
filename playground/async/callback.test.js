@@ -1,5 +1,12 @@
 
 
+function fetchData(callback)
+{
+  setTimeout(() => {
+    callback && callback('good');
+  }, 1000);
+}
+
 /*
   Jest会等done回调函数执行结束后，结束测试
 */

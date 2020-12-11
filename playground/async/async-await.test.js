@@ -1,3 +1,9 @@
+async function fetchData()
+{
+  const result = await resolveAfter2Seconds();
+  return 
+}
+
 test("the data is peanut butter", async () => {
   const data = await fetchData();
   expect(data).toBe("peanut butter");
