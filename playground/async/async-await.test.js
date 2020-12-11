@@ -1,7 +1,16 @@
-async function fetchData()
-{
-  const result = await resolveAfter2Seconds();
-  return 
+function fetchData() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      // do something...
+      const err = false;
+
+      if (err) {
+        reject("error");
+      } else {
+        resolve("peanut butter");
+      }
+    }, 1000);
+  });
 }
 
 test("the data is peanut butter", async () => {
@@ -21,10 +30,10 @@ test("the fetch fails with an error", async () => {
 /*
    async 和 await 联合.resolves or .reject一起使用
 */
-test('the data is peanut butter', async () => {
-  await expect(fetchData()).resolves.toBe('peanut butter');
+test("the data is peanut butter", async () => {
+  await expect(fetchData()).resolves.toBe("peanut butter");
 });
 
-test('the fetch fails with an error', async () => {
-  await expect(fetchData()).rejects.toThrow('error');
+test("the fetch fails with an error", async () => {
+  await expect(fetchData()).rejects.toThrow("error");
 });
