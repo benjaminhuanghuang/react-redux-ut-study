@@ -13,6 +13,22 @@ function fetchData() {
   });
 }
 
+
+function fetchDataError() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      // do something...
+      const err = true;
+
+      if (err) {
+        reject("error");
+      } else {
+        resolve("peanut butter");
+      }
+    }, 1000);
+  });
+}
+
 test("the data is peanut butter", async () => {
   const data = await fetchData();
   expect(data).toBe("peanut butter");
@@ -21,7 +37,7 @@ test("the data is peanut butter", async () => {
 test("the fetch fails with an error", async () => {
   expect.assertions(1);
   try {
-    await fetchData();
+    await fetchDataError();
   } catch (e) {
     expect(e).toMatch("error");
   }
@@ -35,5 +51,5 @@ test("the data is peanut butter", async () => {
 });
 
 test("the fetch fails with an error", async () => {
-  await expect(fetchData()).rejects.toThrow("error");
+  await expect(fetchDataError()).rejects.toMatch("error");
 });

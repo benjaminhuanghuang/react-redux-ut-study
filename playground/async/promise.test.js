@@ -13,6 +13,21 @@ function fetchData() {
   });
 }
 
+function fetchDataError() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      // do something...
+      const err = true;
+
+      if (err) {
+        reject("error");
+      } else {
+        resolve("good");
+      }
+    }, 1000);
+  });
+}
+
 test("the data is good", () => {
   return fetchData().then((data) => {
     expect(data).toBe("good");
@@ -25,7 +40,7 @@ test("the data is good", () => {
 */
 test("the fetch fails with an error", () => {
   expect.assertions(1);
-  return fetchData().catch((e) => expect(e).toMatch("error"));
+  return fetchDataError().catch((e) => expect(e).toMatch("error"));
 });
 
 /*
@@ -36,5 +51,5 @@ test("the data is good", () => {
 });
 
 test("the fetch fails with an error", () => {
-  return expect(fetchData()).rejects.toMatch("error");
+  return expect(fetchDataError()).rejects.toMatch("error");
 });
