@@ -5,9 +5,14 @@ import {render} from '@testing-library/react'
 import App from './App'
 
 describe("My React componnet tesint", () => {
-  it("render the title of componnet", () => {
-    const {getByText} = render(<App />);
-    const element = getByText('This is counter app');
-    expect(element).toBeInTheDocument();
+  let wrapper;
+  beforeEach(() => {
+    wrapper = render(<App />);
+    console.log(wrapper.debug())
+  });
+
+  test("render the title of componnet", () => {
+    const { getByText } = wrapper;
+    getByText("This is counter app");
   });
 });
