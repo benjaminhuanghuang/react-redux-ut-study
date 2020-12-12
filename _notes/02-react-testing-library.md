@@ -2,7 +2,7 @@
 https://testing-library.com/docs/dom-testing-library/intro/
 
 ```
-npm i -D @testing-library/dom
+npm i -D @testing-library/react
 ```
 ## Add data-testid to the component
 ```
